@@ -15,7 +15,10 @@ const TodoContainer = () => {
         id: uuidv4,
         name: taskName
       }
+      createTask(newTask)
+      console.log(newTask);
   }
+
 
   return (
     <div className='todo-container'>

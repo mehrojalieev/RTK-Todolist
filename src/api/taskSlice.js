@@ -5,6 +5,10 @@ export const taskSlice = createApi({
     tagTypes: ["Tasks"],
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:2000" }),
     endpoints: (builder) => ({
+        getTask: builder.query({
+            query: () => "./tasks",
+            providesTags: ["Tasks"]
+        }),
         createTask: builder.mutation({
             query: (task) => ({
                 url: "/tasks",
@@ -15,4 +19,4 @@ export const taskSlice = createApi({
     })
 })
 
-export const {useCreateTaskMutation} = taskSlice
+export const {useGetTaskQuery ,useCreateTaskMutation} = taskSlice
