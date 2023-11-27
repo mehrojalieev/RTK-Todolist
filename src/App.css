@@ -1,4 +1,7 @@
 body{
     background-color: #1f1a1a;
+    font-family: sans-serif;
 }
-
+::-webkit-scrollbar{
+    display: none;
+}

@@ -14,9 +14,17 @@ export const taskSlice = createApi({
                 url: "/tasks",
                 method: "POST",
                 body: task
-            })
+            }),
+            invalidatesTags: ["Tasks"]
         }),
+        deleteTask: builder.mutation({
+            query: (task) => ({
+                url: `/task/${task.id}`,
+                method: "DELETE",
+                body: task
+            })
+        })
     })
 })
 
-export const {useGetTaskQuery ,useCreateTaskMutation} = taskSlice
+export const {useGetTaskQuery ,useCreateTaskMutation, useDeleteTaskMutation} = taskSlice

@@ -1,15 +1,13 @@
 {
   "tasks": [
     {
-      "name": "ddd",
+      "name": "dd",
       "id": 1
     },
     {
-      "name": "ddd",
       "id": 2
     },
     {
-      "name": "salom",
       "id": 3
     }
   ]

@@ -4,9 +4,10 @@
     font-weight: $fWeight;
 }
 .todo-container{
-    width: 500px;
+    position: relative;
+    width: 580px;
     height: 400px;
-    margin: 40px auto 0;
+    margin: 60px auto 0;
     border: 1px solid #fff;
     border-radius: 5px;
     padding: 7px 5px;
@@ -42,4 +43,63 @@
         padding: 14px 20px;
         background-color: #007BFF;
     }
+}
+
+
+// Edit Modal Styles
+.edit__modal-card{
+    position: relative;
+    position: absolute;
+    top: calc(25%);
+    left: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 450px;
+    height: 150px;
+    padding: 10px;
+    border: 5px;
+    background-color: rgb(48, 45, 45);
+    input{
+        width: 100%;
+        height: 45px;
+        background: transparent;
+        border: 1px solid #fff;
+        border-radius: 5px;
+    }
+    .edit-btn{
+        padding: 6px 70px;
+        border: 1px solid #fff;
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 600;
+        border-radius: 5px;
+        background: transparent;
+        transition: 0.2s;
+        &:hover{
+            transform: scale(1.03);
+            cursor: pointer;
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}
+
+.close-modal{
+    top: -10px;
+    right: -7px;
+    position: absolute;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    transition: 0.2s;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+
 }
