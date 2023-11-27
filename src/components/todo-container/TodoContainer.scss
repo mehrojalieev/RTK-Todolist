@@ -1,0 +1,45 @@
+@mixin f-style($fSize, $fColor, $fWeight ){
+    font-size: $fSize;
+    color: $fColor;
+    font-weight: $fWeight;
+}
+.todo-container{
+    width: 500px;
+    height: 400px;
+    margin: 40px auto 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 7px 5px;
+    background-color: rgb(29, 27, 27);
+    
+}
+
+.create__task-form{
+    width: 100%;
+}
+
+.create__task-form > form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 0px 5px;
+    input{
+        flex: 1;
+        height: 50px;
+        border: none;
+        outline: none;
+        border: 1px solid #fff;
+        background: transparent;
+        text-indent: 15px;
+        border-radius: 5px;
+        @include f-style(20px, #fff, 500);
+    }
+    button{
+        @include f-style(20px, #fff, 500);
+        border: none;
+        border-radius: 5px;
+        padding: 14px 20px;
+        background-color: #007BFF;
+    }
+}
