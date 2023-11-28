@@ -6,7 +6,7 @@ import { ApiProvider } from '@reduxjs/toolkit/dist/query/react'
 import { taskSlice } from './api/taskSlice.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-      <ApiProvider api={taskSlice}>
-        <App />
-      </ApiProvider>
+  <ApiProvider api={taskSlice}>
+    <App />
+  </ApiProvider>
 )
