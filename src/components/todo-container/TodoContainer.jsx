@@ -15,7 +15,7 @@ const TodoContainer = () => {
     e.preventDefault()
     if (taskName.trim().length !== 0) {
       const newTask = {
-        id: uuidv4(),
+
         name: taskName
       }
       createTask(newTask)
@@ -38,7 +38,6 @@ const TodoContainer = () => {
           </form>
         </div>
         <TodoRender openEditModal={openEditModal} setOpenEditModal={setOpenEditModal} />
-        {/* Edit Modal */}
       </div>
 
     </>

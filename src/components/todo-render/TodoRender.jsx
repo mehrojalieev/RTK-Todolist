@@ -12,20 +12,29 @@ const TodoRender = ({ openEditModal, setOpenEditModal }) => {
     const [editTask] = useEditTaskMutation()
     const [editInput, setEditInput] = useState('')
 
-
+    const [getEditId, setGetEditId] = useState('')
 
     const handleDeleteTask = (task) => {
         deleteTask(task)
     }
 
+    const controlEditTask = (id) => {
+        setGetEditId(id)
+        console.log(getEditId);
+        setOpenEditModal(true)
+    }
+
     const handleEditTask = (id) => {
         setOpenEditModal(false)
-        editTask({
-            id: id,
-            name: editInput
-        })
-
+        if (id === getEditId) {
+            editTask({
+                id: id,
+                name: editInput
+            })
+        }
     }
+
+
 
     return (
         <div className='todo__render-wrapper'>
@@ -34,13 +43,16 @@ const TodoRender = ({ openEditModal, setOpenEditModal }) => {
                     <div key={tasks.id} className="todo__task-card">
                         <h3>{tasks.name}</h3>
                         <div className="tasks-btns">
-                            <div style={openEditModal ? { display: 'flex' } : { display: "none" }} className="edit__modal-card">
-                                <input value={editInput} onChange={(e) => setEditInput(e.target.value)} type="text" />
-                                <button onClick={() => handleEditTask(tasks.id)} className="edit-btn">Edit</button>
-                                <button onClick={() => setOpenEditModal(false)} className="close-modal"><IoIosCloseCircle /></button>
-                            </div>
-                            <button onClick={() => setOpenEditModal(true)} className="edit-btn">Edit</button>
+                            <button onClick={() => controlEditTask(tasks.id)} className="edit-btn">Edit</button>
                             <button onClick={() => handleDeleteTask(tasks)} className="delete-btn">Delete</button>
+                        </div>
+                        {/* Edit Modal */}
+                        <div style={openEditModal ? { display: 'flex' } : { display: "none" }} className="edit__modal-card">
+                            <form onSubmit={() => handleEditTask(tasks.id)}>
+                                <input value={editInput} onChange={(e) => setEditInput(e.target.value)} type="text" />
+                                <button type="submit" onClick={() => handleEditTask(tasks.id)} className="edit-btn">Edit</button>
+                                <button type="button" onClick={() => setOpenEditModal(false)} className="close-modal"><IoIosCloseCircle /></button>
+                            </form>
                         </div>
                     </div>
                 )
